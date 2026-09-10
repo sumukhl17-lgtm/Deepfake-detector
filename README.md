@@ -1,5 +1,5 @@
 # Deepfake Detector
 
-Detect manipulated media with machine learning.
+## Multi-Level Deepfake Detection
 
-This project provides the foundation for a Python-based deepfake detection system. Model, training, and web application code will be added separately.
+A tri-modal (spatial + frequency + pixel forensics) deepfake detector.

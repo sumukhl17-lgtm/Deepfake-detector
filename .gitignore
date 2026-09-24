@@ -7,3 +7,6 @@ data/raw/
 data/processed/
 models/weights/*.pth
 *.db
+reference/
+.DS_Store
+backend/static/uploads/

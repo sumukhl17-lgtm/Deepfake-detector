@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deepfake Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="case-number">Forensic analysis / image authenticity</p>
+        <h1>Deepfake detector</h1>
+        <p class="intro">Examine a face image and review the model's highlighted regions.</p>
+      </header>
+
+      <section class="upload-panel" aria-labelledby="upload-heading">
+        <h2 id="upload-heading">Submit an image</h2>
+        <form id="analyze-form">
+          <label class="file-picker" for="image-file">
+            <span class="file-picker-title">Drop an image, or browse</span>
+            <span id="file-name" class="file-name">JPG, JPEG, or PNG</span>
+            <input id="image-file" name="file" type="file" accept="image/jpeg,image/png,image/webp" required>
+          </label>
+          <button id="analyze-button" type="submit">Analyze</button>
+        </form>
+        <p id="error-message" class="message error" role="alert" hidden></p>
+        <p id="loading-message" class="message loading" role="status" hidden>Analyzing image. This may take a moment...</p>
+      </section>
+
+      <section id="results" class="results-panel" aria-labelledby="results-heading" hidden>
+        <div class="results-heading">
+          <div>
+            <p class="section-label">Analysis result</p>
+            <h2 id="results-heading">Findings</h2>
+          </div>
+          <span id="prediction-label" class="prediction-badge"></span>
+        </div>
+        <div class="confidence-block">
+          <span class="result-label">Confidence</span>
+          <strong id="confidence-value"></strong>
+        </div>
+        <div class="evidence-section">
+          <h3>Visual evidence</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-item">
+              <img id="original-image" alt="Original uploaded image">
+              <figcaption>Original</figcaption>
+            </figure>
+            <figure class="evidence-item">
+              <img id="heatmap-image" alt="Grad-CAM heatmap showing the model's focus">
+              <figcaption>Texture &amp; blending focus</figcaption>
+            </figure>
+            <figure class="evidence-item">
+              <img id="forensic-heatmap-image" alt="Forensic Grad-CAM heatmap showing noise-residual focus">
+              <figcaption>Noise-residual focus</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

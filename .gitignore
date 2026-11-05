@@ -1,12 +1,32 @@
+# Python environments
 venv/
 .venv/
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Secrets
 .env
+
+# Datasets
 data/raw/
 data/processed/
-models/weights/*.pth
+
+# Model cache
+models/weights/efficientnet_b0_ffpp/.cache/
+
+# Databases and local data
 *.db
-reference/
+
+# System files
 .DS_Store
+
+# Uploads
 backend/static/uploads/
+
+# Keep trained model checkpoints
+!models/weights/*.pth
+!models/weights/efficientnet_b0_ffpp/*.pth
+# Third-party reference experiments and datasets
+reference/
